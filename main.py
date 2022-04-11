@@ -6,14 +6,14 @@ basics_df = pd.read_csv('title_basics_data.tsv', sep='\t', dtype=str, nrows=1000
 basics_df['genres'] = basics_df['genres'].str.split(',')
 
 rating_df = pd.read_csv('title_rating_data.tsv', sep='\t', dtype=str, nrows=10000)
-movie_query = "John"
+movie_query = input("Input movie title: ")
 
 title_rating_df = pd.merge(left=basics_df, right=rating_df, left_on='tconst',right_on='tconst')
 
 movie_result = title_rating_df.loc[title_rating_df['primaryTitle'].str.contains(movie_query, case=False)]
 movie_result = movie_result.sort_values(by=['averageRating'], ascending=False)
 
-print("Movies results for the query 'John'")
+print("Movies results for the query '" + movie_query + "'")
 print(movie_result)
 
 listGenres = set([])
