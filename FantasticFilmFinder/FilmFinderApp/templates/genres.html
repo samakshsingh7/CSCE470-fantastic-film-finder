@@ -1,3 +1,15 @@
-{% for names in allGenres%}
+<!-- {% for names in allGenres%}
     <p style="color: blue;">{{names.genre}}</p>
-{% endfor %}
+{% endfor %} -->
+
+<form action="{% url 'list' %}" method="post">
+    {% csrf_token %}
+    <button  type="submit" name="button" value="horror">horror</button>
+    
+</form>
+
+<form action="{% url 'list' %}" method="post">
+    {% csrf_token %}
+    <button  type="submit" name="button" value="Comedy">comedy</button>
+</form>
+
