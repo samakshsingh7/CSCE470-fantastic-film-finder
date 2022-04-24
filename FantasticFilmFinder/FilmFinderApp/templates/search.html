@@ -1,0 +1,13 @@
+<div className="App">
+    <header className="App-header">
+    <form action="{% url 'displaySearch' %}" method="post">
+    {% csrf_token %}
+     <div class="search-bar">
+      <label class="search-label"> 
+           <input type="text" name="name" />
+         </label>
+       <input type="submit" value="Submit" />
+       </div>
+    </form>
+      </header>
+  </div>

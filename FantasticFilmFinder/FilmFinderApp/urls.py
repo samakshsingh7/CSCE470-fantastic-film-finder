@@ -10,4 +10,6 @@ urlpatterns = [
     path('genres/', views.genres, name='genres'),
     path('', views.home, name='home'),
     path('list', views.listGenre, name='list'),
+    path('search', views.search, name='search'),
+    path('displaySearch', views.displaySearch, name='displaySearch'),
 ]

@@ -51,3 +51,18 @@ def listGenre(request):
     }
     return HttpResponse(df.to_html())
     return render(request, 'DF.html', context=mydict)
+def search(request):
+    return render(request, 'search.html')
+
+def displaySearch(request):
+    if request.method == 'POST':
+        contains = request.POST['name']
+        print(contains)
+    #TODO
+    #use contains to call script and return movies that contain that string in title
+    item = Movie.objects.all().filter(title=contains).values()
+    df = pd.DataFrame(item)
+    mydict = {
+        "df": df.to_html()
+    }
+    return HttpResponse(df.to_html())
