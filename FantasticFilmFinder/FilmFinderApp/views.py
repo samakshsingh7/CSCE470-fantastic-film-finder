@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from .DF import printer
+from .DF import *
 from .models import Movie, Genre
 import pandas as pd
 # Create your views here.
@@ -44,8 +44,11 @@ def listGenre(request):
         print(genre_id)
     #TODO
     #use genre_id to call script and return movies in that genre
-    item = Movie.objects.all().filter(genres=genre_id).values()
-    df = pd.DataFrame(item)
+    df = pd.DataFrame(genreListDF(genre_id))
+    # df = genreListDF(genre_id)
+    # df = pd.DataFrame.from_records(genreListDF(genre_id))
+    # item = Movie.objects.all().filter(genres=genre_id).values()
+    # df = pd.DataFrame(item)
     mydict = {
         "df": df.to_html()
     }
@@ -55,13 +58,15 @@ def search(request):
     return render(request, 'search.html')
 
 def displaySearch(request):
+    #gets single word genre
     if request.method == 'POST':
         contains = request.POST['name']
-        print(contains)
+        # print(contains)
     #TODO
     #use contains to call script and return movies that contain that string in title
-    item = Movie.objects.all().filter(title=contains).values()
-    df = pd.DataFrame(item)
+    # item = Movie.objects.all().filter(title=contains).values()
+    # df = pd.DataFrame(item)
+    df = pd.DataFrame(searchDF(contains))
     mydict = {
         "df": df.to_html()
     }
