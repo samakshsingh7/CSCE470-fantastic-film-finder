@@ -1,0 +1,31 @@
+.genre-div{
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center;
+    justify-content: center; */
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.genre-button{
+    color: blue;
+    background: #000;
+    height: 200px;
+    width: 340px;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-size : 20px;
+    
+}
+.allign-content{
+    /* position: relative; */
+    flex-direction: row;
+}
+.genre-form{
+    display: inline-block; 
+    margin-right: 20px;
+}

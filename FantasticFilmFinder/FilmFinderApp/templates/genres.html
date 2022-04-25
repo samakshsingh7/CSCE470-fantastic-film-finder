@@ -1,15 +1,12 @@
-<!-- {% for names in allGenres%}
-    <p style="color: blue;">{{names.genre}}</p>
-{% endfor %} -->
-
-<form action="{% url 'list' %}" method="post">
-    {% csrf_token %}
-    <button  type="submit" name="button" value="horror">horror</button>
-    
-</form>
-
-<form action="{% url 'list' %}" method="post">
-    {% csrf_token %}
-    <button  type="submit" name="button" value="Comedy">comedy</button>
-</form>
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/genres.css' %}">
+<div class = "genre-div">
+    <div class = "allign-content">
+        {% for names in genreArray%}
+            <form action="{% url 'list' %}" method="post" class="genre-form">
+                {% csrf_token %}
+                <button  type="submit" name="button" value={{names}} class="genre-button">{{names}}</button>
+            </form>
+        {% endfor %}
+        </div>
+</div>
