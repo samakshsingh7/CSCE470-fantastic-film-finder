@@ -1,13 +1,17 @@
-<div className="App">
-    <header className="App-header">
-    <form action="{% url 'displaySearch' %}" method="post">
-    {% csrf_token %}
-     <div class="search-bar">
-      <label class="search-label"> 
-           <input type="text" name="name" />
-         </label>
-       <input type="submit" value="Submit" />
-       </div>
-    </form>
-      </header>
-  </div>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+
+<div class="search-div">
+    <div class="allign-div">
+        <form action="{% url 'displaySearch' %}" method="post">
+        {% csrf_token %}
+        <div class="search-bar">
+            <label class="search-label"> 
+                <input type="text" name="name" class="search-text"/>
+                </label>
+            <input type="submit" value="Submit" class="search-button"/>
+        </div>
+        </form>
+    </div>
+    
+</div>
