@@ -100,9 +100,9 @@ def get_top_score_for_query(query):
     return_result = []
     # return_result = set()
     
-    for i in range (0,10):
+    for i in range (0,15):
         tconst = result_array[i][1]
-        return_result.append(title_rating_df.loc[title_rating_df.tconst == tconst, ['primaryTitle', 'originalTitle','startYear']].values.flatten().tolist())
+        return_result.append(title_rating_df.loc[title_rating_df.tconst == tconst, ['primaryTitle','startYear', 'endYear' , 'genres', 'averageRating']].values.flatten().tolist())
     return(return_result)
 
 print(get_top_score_for_query("john wick"))
